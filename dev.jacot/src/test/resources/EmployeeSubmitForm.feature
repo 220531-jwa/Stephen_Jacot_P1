@@ -16,17 +16,14 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+Feature: Submit Form
 
-Feature: Employee Login
-
-	
 	Background:
-					Given a Employee is on the EmployeeLoginPage
-	Scenario Outline: A Employee can Login using their credentials
-	
-					When the Employee types in their "<username>" and "<password>" and clicks the EmployeeLoginButton
-					Then the Employee should be on the EmployeeHomePage
-					
+		Given an Employee is on the Submit Form page
+  Scenario Outline: the Employee should be able to submit a form
+    When the Employee enters their "<date>" and their "<formtime>" and their "<formDescription>" and their "<firstname>" and their "<lastname>" and their "<eventLocation>" and their {int} and their "<formjustification>" and their "<eventtype>" and their "<gradetype>" and their "<id>"
+    Then the Employee should be redirected to the homepage
     Examples: 
-      | username  | password |
-      | dan				| theman   |
+      | name  | value | status  |
+      | name1 |     5 | success |
+      | name2 |     7 | Fail    |

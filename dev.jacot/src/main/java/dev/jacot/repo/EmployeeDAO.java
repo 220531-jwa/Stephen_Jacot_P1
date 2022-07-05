@@ -113,7 +113,7 @@ public class EmployeeDAO
 		return null;
 	}
 
-	public static Employee getEmployeeByUserName(String username) 
+	public Employee getEmployeeByUserName(String username) 
 	{
 		String sql = "select * from employee where username = ?";
 		
@@ -134,8 +134,6 @@ public class EmployeeDAO
 						rs.getString("first_name"),
 						rs.getInt("id"));
 					
-						
-						
 			}
 		} catch (SQLException e) 
 		{

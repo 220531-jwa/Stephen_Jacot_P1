@@ -8,7 +8,7 @@ import io.javalin.http.Context;
 
 public class EmployeeController 
 {
-	private static EmployeeService es;
+	private EmployeeService es;
 	
 	
 	public EmployeeController(EmployeeService es)
@@ -20,14 +20,22 @@ public class EmployeeController
 		Employee e = ctx.bodyAsClass(Employee.class);
 		
 		Employee loggedInEmployee = es.login(e.getUsername(), e.getPassword());
+		
+		if(e != null)
+		{
+			ctx.sessionAttribute("logged in employee", loggedInEmployee);
+		}
+		
 		ctx.json(loggedInEmployee);
 	}
 	
-	public static void getAllEmployees(Context ctx)
+	public void getAllEmployees(Context ctx)
 	{
 		ctx.status(200);
 		
 		List<Employee> employee = es.getAllClients();
+		
+		ctx.json(employee);
 	}
 	
 	public void createNewEmployee(Context ctx)

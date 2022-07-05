@@ -16,17 +16,12 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+Feature: Manager View All Grades Feature
 
-Feature: Employee Login
+  Background: 
+  	Given a Manager is on the view grades page
+  	
+  Scenario: A Manager can view all employee grades
+  When the manager clicks on the view button
+  Then the Manager should be able to view all the grades
 
-	
-	Background:
-					Given a Employee is on the EmployeeLoginPage
-	Scenario Outline: A Employee can Login using their credentials
-	
-					When the Employee types in their "<username>" and "<password>" and clicks the EmployeeLoginButton
-					Then the Employee should be on the EmployeeHomePage
-					
-    Examples: 
-      | username  | password |
-      | dan				| theman   |

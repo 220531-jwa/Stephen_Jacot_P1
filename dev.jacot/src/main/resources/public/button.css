@@ -1,0 +1,33 @@
+#viewall
+{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top:50%;
+    left: 48%;
+    margin-top: 200px;
+    margin-left:-100px;
+}
+
+#approve
+{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top:50%;
+    left: 49%;
+    margin-top: 250px;
+    margin-left:-100px;
+    width: 200%;
+}
+
+#deny
+{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top:50%;
+    left: 49%;
+    margin-top: 300px;
+    margin-left:-100px;
+}

@@ -16,17 +16,15 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+Feature: Deny Form Feature
 
-Feature: Employee Login
+	Background: 
+	Given a manager is on the deny form page
+  
+  Scenario Outline: On the deny form page
+    When a Manager inputs "<formid"> 
+    Then the form is denied
 
-	
-	Background:
-					Given a Employee is on the EmployeeLoginPage
-	Scenario Outline: A Employee can Login using their credentials
-	
-					When the Employee types in their "<username>" and "<password>" and clicks the EmployeeLoginButton
-					Then the Employee should be on the EmployeeHomePage
-					
     Examples: 
-      | username  | password |
-      | dan				| theman   |
+      | formid  |
+			| 2 			|

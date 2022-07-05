@@ -16,17 +16,19 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+Feature: Approve Form Feature
 
-Feature: Employee Login
+	Background: 
+	Given a Manager is on the Manager Home Page
 
-	
-	Background:
-					Given a Employee is on the EmployeeLoginPage
-	Scenario Outline: A Employee can Login using their credentials
-	
-					When the Employee types in their "<username>" and "<password>" and clicks the EmployeeLoginButton
-					Then the Employee should be on the EmployeeHomePage
-					
+  Scenario: A Manager can click the Approve Employee Reimbursement hyperlink
+    When the Manager clicks on the hyperlink
+    Then they are redirected to the approve form page
+    
+  Scenario Outline: After being redirected the manager is prompted to enter a form id
+    When the Manager inputs "<formid>"
+    Then the form is approved
+
     Examples: 
-      | username  | password |
-      | dan				| theman   |
+      | formid|
+      | 1     |

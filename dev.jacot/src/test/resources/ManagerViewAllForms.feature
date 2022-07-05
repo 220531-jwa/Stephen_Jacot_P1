@@ -16,17 +16,11 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+Feature: Manager View All Forms Feature
 
-Feature: Employee Login
-
-	
-	Background:
-					Given a Employee is on the EmployeeLoginPage
-	Scenario Outline: A Employee can Login using their credentials
-	
-					When the Employee types in their "<username>" and "<password>" and clicks the EmployeeLoginButton
-					Then the Employee should be on the EmployeeHomePage
-					
-    Examples: 
-      | username  | password |
-      | dan				| theman   |
+	Background: 
+		Given a Manager is on the Manager Homepage
+		
+  Scenario: A Manage can view all employee reimbursement forms
+    When the Manager clicks on the View forms button
+    Then the Manager should be able to view all employee forms

@@ -8,12 +8,11 @@ import dev.jacot.repo.EmployeeDAO;
 public class EmployeeService 
 {
 
-	private EmployeeDAO ed = new EmployeeDAO();
-	
-	public EmployeeService(EmployeeDAO ed)
-	{
-		this.ed = ed;
-	}
+		private static EmployeeDAO ed;
+		public EmployeeService(EmployeeDAO ed)
+		{
+			this.ed = ed;
+		}
 	
 	
 	public List<Employee> getAllClients() 
@@ -31,14 +30,22 @@ public class EmployeeService
 
 	public Employee login(String username, String password) 
 	{
-		Employee e = EmployeeDAO.getEmployeeByUserName(username);
-		
-		if(e.getPassword().equals(password))
+		Employee e = ed.getEmployeeByUserName(username);
+		if(e.getUsername().equals(username))
 		{
-			return e;
+			if(e.getPassword().equals(password))
+			{
+				return e;
+			} else {
+				System.out.println("Invalid credentials");
+				return null;
+			}
+		} else {
+			System.out.println("Invalid Username");
+			return null;
 		}
-		
-		return null;
 	}
+	
+	
 
 }

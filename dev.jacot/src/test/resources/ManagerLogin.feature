@@ -16,17 +16,16 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+Feature: Manager Login
 
-Feature: Employee Login
+	Background: 
+		Given a Manager is on the Manager login page.
+		
+	Scenario Outline: A Manager can login with their credentials
+						When the Manager types in their "<manageUsername>" and "<managePassword>" and clicks on the login button
+						Then the Manager should be on the Manager Homepage
 
-	
-	Background:
-					Given a Employee is on the EmployeeLoginPage
-	Scenario Outline: A Employee can Login using their credentials
-	
-					When the Employee types in their "<username>" and "<password>" and clicks the EmployeeLoginButton
-					Then the Employee should be on the EmployeeHomePage
-					
     Examples: 
-      | username  | password |
-      | dan				| theman   |
+      | manageUsername | managePassword |
+      | derek          |    letter      |
+      | admin					 |     pass    	  |
